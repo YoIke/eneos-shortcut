@@ -6,11 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     if (isAndroid) {
-        // Android: Force app launch using Intent scheme with https fallback
-        const eneosPackage = "jp.eneos.owners.app";
-        // This intent tries to open https://eneos-ss.app/ explicitly with the ENEOS app
-        const eneosIntent = `intent://eneos-ss.app/#Intent;scheme=https;package=${eneosPackage};S.browser_fallback_url=https://play.google.com/store/apps/details?id=${eneosPackage};end`;
-        document.querySelector('.eneos').href = eneosIntent;
+        // Android: ENEOS and d Point now use tracking links (Adjust/OneLink) which handle intents automatically.
+        // No manual overrides needed for them.
     }
 
     if (isIOS) {
