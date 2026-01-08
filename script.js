@@ -5,9 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const isAndroid = /Android/i.test(navigator.userAgent);
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
+    if (isAndroid) {
+        // Android: Force app launch using Intent scheme with https fallback
+        const eneosPackage = "jp.eneos.owners.app";
+        // This intent tries to open https://eneos-ss.app/ explicitly with the ENEOS app
+        const eneosIntent = `intent://eneos-ss.app/#Intent;scheme=https;package=${eneosPackage};S.browser_fallback_url=https://play.google.com/store/apps/details?id=${eneosPackage};end`;
+        document.querySelector('.eneos').href = eneosIntent;
+    }
+
     if (isIOS) {
-        // iOS doesn't support 'intent://'. Revert to custom schemes for Rakuten.
-        // ENEOS and d Point now use Universal Links/OneLink so they don't need overrides.
+        // iOS: Standard Universal Link usually works. 
+        // Rakuten often requires custom scheme or it falls back to web.
         document.querySelector('.rakuten').href = "rakutenpay://";
     }
 
