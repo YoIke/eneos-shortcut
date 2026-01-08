@@ -6,11 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     if (isAndroid) {
-        // Android: Force app launch by package name. 
-        // Correct package ID verified as 'com.eneos.ssapp'
-        const eneosPackage = "com.eneos.ssapp";
-        const eneosIntent = `intent:#Intent;package=${eneosPackage};S.browser_fallback_url=https://play.google.com/store/apps/details?id=${eneosPackage};end`;
-        document.querySelector('.eneos').href = eneosIntent;
+        // Android: User requested to just use the official site link if deep links fail.
+        // No overrides.
     }
 
     if (isIOS) {
