@@ -1,21 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     const mobileUserAgent = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-    // Simple click handler for visual feedback
+    // Detect OS
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isIOS) {
+        // iOS doesn't support 'intent://'. Revert to custom schemes.
+        document.querySelector('.eneos').href = "eneos-ss://"; // Fallback guess
+        // d point on iOS might just be 'dpointclub://' or web
+        document.querySelector('.dpoint').href = "dpointclub://";
+        // Rakuten often works with 'rakutenpay://'
+        document.querySelector('.rakuten').href = "rakutenpay://";
+    }
+
+    // Optional: add visual feedback or clipboard copy on click if it fails?
     document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', (e) => {
-            // Visual feedback handled by CSS active state primarily
-            // Could add haptic feedback here if device supports it in PWA context
             if (navigator.vibrate) {
                 navigator.vibrate(50);
             }
         });
     });
-
-    // Android Intent fallback logic for ENEOS if simple scheme fails?
-    // This is complex to do purely in JS without a backend redirection or universally working approach.
-    // Making a "best effort" attempt for Android devices to use intents if the scheme is guessed wrong.
-    // For now, sticking to the standard links as per plan.
 
     console.log("ENEOS Shortcuts Loaded. Device is mobile:", mobileUserAgent);
 });
