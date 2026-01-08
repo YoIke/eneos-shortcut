@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENEOS Shortcuts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fueling Station</h1>
+            <p>Select App</p>
+        </header>
+        
+        <div class="grid">
+            <!-- ENEOS App -->
+            <!-- Scheme guess: eneos-ss:// or jp.eneos.owners.app implicit intent -->
+            <a href="eneos-ss://" class="card eneos" id="eneos-btn">
+                <div class="icon">⛽</div>
+                <span>ENEOS</span>
+                <div class="status">Official App</div>
+            </a>
+
+            <!-- LINE -->
+            <!-- Provided: line://ti/p/@059qdkud -->
+            <a href="line://ti/p/@059qdkud" class="card line">
+                <div class="icon">💬</div>
+                <span>LINE</span>
+                <div class="status">Coupon</div>
+            </a>
+
+            <!-- Rakuten Pay -->
+            <!-- Scheme guess: rakutenpay:// -->
+            <a href="rakutenpay://" class="card rakuten">
+                <div class="icon">💳</div>
+                <span>Rakuten Pay</span>
+                <div class="status">Payment</div>
+            </a>
+
+            <!-- d Point -->
+            <!-- Scheme guess: dpoint:// -->
+            <a href="dpoint://" class="card dpoint">
+                <div class="icon">🅿️</div>
+                <span>d Point</span>
+                <div class="status">Points</div>
+            </a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
