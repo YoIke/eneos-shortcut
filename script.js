@@ -6,8 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     if (isAndroid) {
-        // Android: ENEOS and d Point now use tracking links (Adjust/OneLink) which handle intents automatically.
-        // No manual overrides needed for them.
+        // Android: Force app launch by package name. 
+        // Correct package ID verified as 'com.eneos.ssapp'
+        const eneosPackage = "com.eneos.ssapp";
+        const eneosIntent = `intent:#Intent;package=${eneosPackage};S.browser_fallback_url=https://play.google.com/store/apps/details?id=${eneosPackage};end`;
+        document.querySelector('.eneos').href = eneosIntent;
     }
 
     if (isIOS) {
