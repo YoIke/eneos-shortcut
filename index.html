@@ -20,9 +20,8 @@
 
         <div class="grid">
             <!-- ENEOS App -->
-            <!-- Android: Try Intent with package. Fallback to Store. -->
-            <a href="intent://#Intent;package=jp.eneos.owners.app;scheme=eneos-ss;S.browser_fallback_url=https://play.google.com/store/apps/details?id=jp.eneos.owners.app;end"
-                class="card eneos" id="eneos-btn">
+            <!-- Using official universal link/landing page which usually triggers app open -->
+            <a href="https://eneos-ss.app/" class="card eneos" id="eneos-btn">
                 <div class="icon">⛽</div>
                 <span>ENEOS</span>
                 <div class="status">Official App</div>
@@ -36,7 +35,7 @@
             </a>
 
             <!-- Rakuten Pay -->
-            <!-- Keeping generic scheme but adding Intent alternative for Android via JS or simple link -->
+            <!-- Rakuten Pay likely needs scheme or specific link. Keeping Intent/Scheme logic for now. -->
             <a href="intent://#Intent;package=jp.co.rakuten.pay;scheme=rakutenpay;S.browser_fallback_url=https://play.google.com/store/apps/details?id=jp.co.rakuten.pay;end"
                 class="card rakuten">
                 <div class="icon">💳</div>
@@ -45,8 +44,8 @@
             </a>
 
             <!-- d Point -->
-            <!-- Android: Intent with package -->
-            <a href="intent://#Intent;package=com.nttdocomo.android.dpoint;scheme=dpoint;S.browser_fallback_url=https://dpoint.docomo.ne.jp/;end"
+            <!-- Using Onelink provided by user which handles deep linking automatically -->
+            <a href="https://dpoint.onelink.me/roGT?af_xp=custom&pid=dpointcard&af_dp=dpoint%3A%2F%2Ftop&af_ios_url=https%3A%2F%2Fdpoint.docomo.ne.jp%2Fguide%2Fabout_dpointcard%2Fapp_mobile%2Findex.html&af_android_url=https%3A%2F%2Fdpoint.docomo.ne.jp%2Fguide%2Fabout_dpointcard%2Fapp_mobile%2Findex.html&af_web_dp=https%3A%2F%2Fdpoint.docomo.ne.jp%2Fguide%2Fabout_dpointcard%2Fapp_mobile%2Findex.html"
                 class="card dpoint">
                 <div class="icon">🅿️</div>
                 <span>d Point</span>

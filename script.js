@@ -6,11 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     if (isIOS) {
-        // iOS doesn't support 'intent://'. Revert to custom schemes.
-        document.querySelector('.eneos').href = "eneos-ss://"; // Fallback guess
-        // d point on iOS might just be 'dpointclub://' or web
-        document.querySelector('.dpoint').href = "dpointclub://";
-        // Rakuten often works with 'rakutenpay://'
+        // iOS doesn't support 'intent://'. Revert to custom schemes for Rakuten.
+        // ENEOS and d Point now use Universal Links/OneLink so they don't need overrides.
         document.querySelector('.rakuten').href = "rakutenpay://";
     }
 
